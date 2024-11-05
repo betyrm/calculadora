@@ -1,19 +1,19 @@
-def suma(num1, num2):
+def sumar(num1, num2):
     return num1 + num2
 
-def resta(num1, num2):
+def restar(num1, num2):
     return num1 - num2
 
-def multiplica(num1, num2):
+def multiplicar(num1, num2):
     return num1 * num2
 
-def divide(num1, num2):
+def dividir(num1, num2):
     if num2 != 0:
         return num1 / num2
     else:
         return "Error: División por cero"
     
-def muestra_historial(datos):
+def mostrar_historial(datos):
     if datos == []:
         print('El historial está vacío')
     else:

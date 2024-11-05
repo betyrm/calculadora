@@ -9,7 +9,7 @@ def limpiar_consola():
     else:
         os.system('clear')
 
-def pide_datos():
+def pedir_datos():
     numeros = []
     nro1 = float(input('Ingrese el primer número para la operación '))
     if type(nro1) == float:
@@ -27,7 +27,7 @@ def pide_datos():
     return(numeros)
 
 
-def muestra_menu():
+def mostrar_menu():
     
     print('\n--- Elige una operación ---')
     print('1. Suma')
