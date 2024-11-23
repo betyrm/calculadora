@@ -1,5 +1,6 @@
 import os
 
+from termcolor import colored
 
 def limpiar_consola():
     # Para Windows
@@ -9,30 +10,29 @@ def limpiar_consola():
     else:
         os.system('clear')
 
-def pedir_datos():
-    numeros = []
-    nro1 = float(input('Ingrese el primer número para la operación '))
-    if type(nro1) == float:
-        numeros.append(nro1)
-    else:
-        print('Error: Debe ingresar un número')
-        return []
-    nro2= float(input('Ingrese el segundo número para la operación '))
-    if type(nro2) == float:
-        numeros.append(nro2)
-    else:
-        print('Error: Debe ingresar un número')
-        return []
+def pedir_datos() -> float:
+    try:
+        return float(input('Ingrese un número '))
+    except ValueError as ex:
+        print('Debe ser un número decimal', ex)
+        return pedir_datos()
     
-    return(numeros)
-
+def cargar_datos() -> list[float]:
+    datos_operacion: list[float] = []
+    while len(datos_operacion) < 2:
+            datos_operacion.append(pedir_datos())
+    return datos_operacion
 
 def mostrar_menu():
-    
-    print('\n--- Elige una operación ---')
+    text = colored('\n--- Elige una operación ---', 'red', attrs=['reverse'])
+    print(text)
     print('1. Suma')
     print('2. Resta')
     print('3. Multiplicación')
     print('4. División')
     print('5. Muestra Historial')
     print('0. Salir')
+    opcion = input('Elige una opcion (0-5): ')
+    return opcion
+  
+    
